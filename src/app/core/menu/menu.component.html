@@ -1,0 +1,8 @@
+<nav>
+    <ul>
+        <li class="logo">PRS</li>
+        <li *ngFor="let menuItem of menuItems" title="{{menuItem.tooltip}}">
+            <a routerLink="{{menuItem.href}}">{{menuItem.display}}</a>
+        </li>
+    </ul>
+</nav>
