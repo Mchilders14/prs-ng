@@ -8,7 +8,7 @@ const URL: string = "http://localhost:8080/api/products"
 @Injectable({
   providedIn: 'root'
 })
-export class RequestService {
+export class ProductService {
 
   constructor(
     private http: HttpClient

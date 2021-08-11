@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Vendor } from 'src/app/model/vendor.class';
+import { VendorService } from 'src/app/service/vendor.service';
 
 @Component({
   selector: 'app-vendor-detail',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorDetailComponent implements OnInit {
 
-  constructor() { }
+  title: string = 'Vendor-Detail';
+  vendor: Vendor = new Vendor();
+  vendorId: number = 0;
+
+  constructor(
+    private vendorSvc: VendorService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(parms => this.vendorId = parms["id"]);
+    this.vendorSvc.get(this.vendorId).subscribe(
+      res => {
+        this.vendor = res as Vendor;
+      },
+      err => { console.log(err); }
+    );
   }
 
+  delete() {
+    this.vendorSvc.delete(this.vendorId).subscribe(
+      res => {
+        this.vendor = res as Vendor;
+        this.router.navigateByUrl('/vendor-list');
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }

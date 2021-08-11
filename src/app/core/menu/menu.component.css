@@ -26,4 +26,5 @@ a:hover {
 .logo{
 	color: rgb(134, 106, 146);
 	float: left;
+	padding-left: 20px;
 }
