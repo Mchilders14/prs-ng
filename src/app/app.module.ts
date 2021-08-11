@@ -26,6 +26,7 @@ import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-i
 import { LineItemDetailComponent } from './feature/line-item/line-item-detail/line-item-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FormsModule } from '@angular/forms';
     LineItemListComponent,
     LineItemCreateComponent,
     LineItemEditComponent,
-    LineItemDetailComponent
+    LineItemDetailComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
