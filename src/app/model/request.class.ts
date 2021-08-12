@@ -1,4 +1,3 @@
-import { toASCII } from "punycode";
 import { User } from "./user.class";
 
 export class Request {
