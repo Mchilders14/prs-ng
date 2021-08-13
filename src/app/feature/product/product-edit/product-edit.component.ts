@@ -28,11 +28,11 @@ export class ProductEditComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // get the credit to edit
+    // get the product to edit
     this.route.params.subscribe(parms => this.productId = parms["id"]);
     this.productSvc.get(this.productId).subscribe(
-      resp => {
-        this.product = resp as Product;
+      res => {
+        this.product = res as Product;
       },
       err => { console.log(err); }
     );
