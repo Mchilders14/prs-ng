@@ -20,13 +20,14 @@ import { RequestListComponent } from './feature/request/request-list/request-lis
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
-import { LineItemListComponent } from './feature/line-item/line-item-list/line-item-list.component';
 import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
 import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
-import { LineItemDetailComponent } from './feature/line-item/line-item-detail/line-item-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 
 @NgModule({
   declarations: [
@@ -48,11 +49,12 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
     RequestEditComponent,
     RequestCreateComponent,
     RequestDetailComponent,
-    LineItemListComponent,
     LineItemCreateComponent,
     LineItemEditComponent,
-    LineItemDetailComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    RequestLinesComponent,
+    RequestReviewComponent,
+    RequestApproveComponent
   ],
   imports: [
     BrowserModule,
