@@ -38,7 +38,7 @@
             <td>{{lineItem.product.vendor.name}}</td>
             <td>{{lineItem.product.name + ", " + request.user.firstName}}</td>
             <td>{{lineItem.quantity}}</td>
-            <td>{{lineItem.product.price}}</td>
+            <td>{{lineItem.product.price}}*{{lineItem.quantity}}</td>
             <td>{{lineItem.request.total}}</td>
             <td>
                 <a routerLink='/request-detail/{{request.id}}'>

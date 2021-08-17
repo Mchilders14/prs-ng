@@ -17,7 +17,7 @@ export class UserLoginComponent implements OnInit {
 
   constructor(
     private userSvc: UserService,
-    private sysSvc: SystemService,
+    private systemService: SystemService,
     private router: Router
     ) { }
 
@@ -34,7 +34,7 @@ export class UserLoginComponent implements OnInit {
         }
         else {
           this.user = res as User;
-          this.sysSvc.loggedInUser = this.user;
+          this.systemService.loggedInUser = this.user;
           this.router.navigateByUrl('/user-list');
         }
       },

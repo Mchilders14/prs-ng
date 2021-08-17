@@ -10,6 +10,8 @@ const URL: string = "http://localhost:8080/api/requests"
 })
 export class RequestService {
 
+  currentRequest: Request = new Request();
+
   constructor(
     private http: HttpClient
   ) { }

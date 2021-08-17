@@ -30,6 +30,9 @@ export class RequestLinesComponent implements OnInit {
     this.requestSvc.get(this.requestId).subscribe(
       res => {
         this.request = res as Request;
+
+        // set global request to current request
+        this.requestSvc.currentRequest = this.request;
       },
       err => { console.log(err); }
     );
