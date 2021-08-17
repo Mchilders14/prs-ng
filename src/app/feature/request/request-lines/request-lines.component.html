@@ -36,17 +36,17 @@
         </tr>
         <tr *ngFor='let lineItem of lineItems'>
             <td>{{lineItem.product.vendor.name}}</td>
-            <td>{{lineItem.product.name + ", " + request.user.firstName}}</td>
+            <td>{{lineItem.product.name}}</td>
             <td>{{lineItem.quantity}}</td>
-            <td>{{lineItem.product.price}}*{{lineItem.quantity}}</td>
-            <td>{{lineItem.request.total}}</td>
+            <td>{{lineItem.product.price}}</td>
+            <td>{{lineItem.product.price * lineItem.quantity}}</td>
             <td>
                 <a routerLink='/request-detail/{{request.id}}'>
-                    <img width='20' height='20' src='assets/details.png' title='Vendor Details'>
+                    <img width='20' height='20' src='assets/pencil-icon.png' title='Vendor Details'>
                 </a> |
-                <a routerLink='/request-edit/{{request.id}}'>
-                    <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Vendor'>
-                </a>
+                <button (click)="delete(lineItem.id)">
+                    <img width='20' height='20' src='assets/delete.jpg' title='Delete Line-Item'>
+                </button>
             </td>
         </tr>
     </tbody>

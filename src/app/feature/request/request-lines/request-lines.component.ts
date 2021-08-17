@@ -14,6 +14,7 @@ export class RequestLinesComponent implements OnInit {
 
   title: string = "Purchase Request Line Items"
   request: Request = new Request();
+  lineItem: LineItem = new LineItem();
   lineItems: LineItem[] = [];
   requestId: number = 0;
 
@@ -48,13 +49,15 @@ export class RequestLinesComponent implements OnInit {
       );
   }
 
-  save() {
-    this.requestSvc.edit(this.request).subscribe(
+  delete(lineItemId: number) {
+    this.lineItemSvc.delete(lineItemId).subscribe(
       res => {
-        this.request = res as Request;
-        this.router.navigateByUrl("/request-list");
+        this.lineItem = res as LineItem;
+        location.reload();
       },
-      err => { console.log(err); }
+      err => {
+        console.log(err);
+      }
     );
   }
 }

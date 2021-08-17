@@ -40,6 +40,5 @@ export class RequestDetailComponent implements OnInit {
         console.log(err);
       }
     );
-
   }
 }

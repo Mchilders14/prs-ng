@@ -46,7 +46,7 @@ export class LineItemCreateComponent implements OnInit {
     this.lineItemSvc.create(this.lineItem).subscribe(
       res => {
         this.lineItem = res as LineItem;
-        this.router.navigateByUrl("/request-list");
+        this.router.navigateByUrl("/request-lines/" + this.requestSvc.currentRequest.id);
       },
       err => { console.log(err); }
     );
