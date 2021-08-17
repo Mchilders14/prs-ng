@@ -1,5 +1,5 @@
 <section class="heading">
-    <span class="page-title font-weight-bold font-italic">{{title}} | {{lineItem.request.id}}</span>
+    <span class="page-title font-weight-bold font-italic">{{title}} - PR ID: {{lineItem.request.id}}</span>
     <span> | <a routerLink="/request-lines/{{lineItem.request.id}}">Return to List</a></span>
   </section><p *ngIf='!lineItem'>Loading...</p>
   <div *ngIf='lineItem'>
