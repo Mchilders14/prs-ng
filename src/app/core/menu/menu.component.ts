@@ -17,12 +17,14 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
 
+    let loginString = (this.systemService.loggedInUser.id == 0)? "Login" : "Logout";
+
     this.menuItems = [
     new MenuItem("User", "/user-list", "User List"),
     new MenuItem("Vendor", "/vendor-list", "Vendor List"),
     new MenuItem("Product", "/product-list", "Product List"),
     new MenuItem("Request", "/request-list", "Request List"),
-    new MenuItem("Login", "/user-login", "User Login/Logout")
+    new MenuItem(loginString, "/user-login", "User Login/Logout")
     ];
 
     if (this.systemService.loggedInUser.reviewer == true){
