@@ -41,7 +41,7 @@
             <td>{{lineItem.product.price}}</td>
             <td>{{lineItem.product.price * lineItem.quantity}}</td>
             <td>
-                <a routerLink='/request-detail/{{request.id}}'>
+                <a routerLink='/line-item-edit/{{lineItem.id}}'>
                     <img width='20' height='20' src='assets/pencil-icon.png' title='Vendor Details'>
                 </a> |
                 <button (click)="delete(lineItem.id)">

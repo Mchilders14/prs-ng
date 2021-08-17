@@ -1,6 +1,6 @@
 <section class="heading">
-    <span class="page-title font-weight-bold font-italic">{{title}} | {{lineItem.request.id}}</span>
-    <span> | <a routerLink="/product-list">Return to List</a></span>
+    <span class="page-title font-weight-bold font-italic">{{title}} - PR ID: {{lineItem.request.id}}</span>
+    <span> | <a routerLink="/request-lines/{{lineItem.request.id}}">Return to List</a></span>
   </section><p *ngIf='!lineItem'>Loading...</p>
   <div *ngIf='lineItem'>
     <main class="single">
@@ -11,7 +11,7 @@
           </td>
           <td>
             <select [(ngModel)]="lineItem.product" class="rounded">
-                <option value="undefined" disabled></option>
+                <option value="undefined"></option>
                 <option *ngFor="let product of products" [ngValue]="product">
                     {{product.name}} | {{product.vendor.name}}
                 </option>
