@@ -53,7 +53,7 @@ export class RequestLinesComponent implements OnInit {
     this.lineItemSvc.delete(lineItemId).subscribe(
       res => {
         this.lineItem = res as LineItem;
-        location.reload();
+        location.reload(); // reloads page
       },
       err => {
         console.log(err);
