@@ -60,4 +60,16 @@ export class RequestLinesComponent implements OnInit {
       }
     );
   }
+
+  submit() {
+    this.requestSvc.submitReview(this.request).subscribe(
+      res => {
+        this.request = res as Request;
+        this.router.navigateByUrl("/request-list");
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }
