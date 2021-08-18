@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/model/product.class';
 import { Vendor } from 'src/app/model/vendor.class';
 import { ProductService } from 'src/app/service/product.service';
+import { SystemService } from 'src/app/service/system.service';
 import { VendorService } from 'src/app/service/vendor.service';
 
 @Component({
@@ -20,13 +21,16 @@ export class ProductEditComponent implements OnInit {
   
   constructor(
     private productSvc: ProductService,
+    private systemService: SystemService,
     private vendorSvc: VendorService,
     private router: Router,
     private route: ActivatedRoute
 
   ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemService.checkLogin();
 
     // get the product to edit
     this.route.params.subscribe(parms => this.productId = parms["id"]);
@@ -41,7 +45,6 @@ export class ProductEditComponent implements OnInit {
     this.vendorSvc.list().subscribe(
       res => {
         this.vendors = res as Vendor[]; 
-        console.log("List of Vendors: ", this.vendors); 
       },
       err => { 
         console.log(err); 

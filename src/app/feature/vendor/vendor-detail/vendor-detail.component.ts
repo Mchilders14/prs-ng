@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Vendor } from 'src/app/model/vendor.class';
+import { SystemService } from 'src/app/service/system.service';
 import { VendorService } from 'src/app/service/vendor.service';
 
 @Component({
@@ -15,12 +16,16 @@ export class VendorDetailComponent implements OnInit {
   vendorId: number = 0;
 
   constructor(
+    private systemService: SystemService,
     private vendorSvc: VendorService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemService.checkLogin();
+    
     this.route.params.subscribe(parms => this.vendorId = parms["id"]);
     this.vendorSvc.get(this.vendorId).subscribe(
       res => {

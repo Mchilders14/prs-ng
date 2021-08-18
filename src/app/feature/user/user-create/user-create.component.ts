@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user.class';
+import { SystemService } from 'src/app/service/system.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -16,10 +17,13 @@ export class UserCreateComponent implements OnInit {
 
   constructor(
     private userSvc: UserService,
+    private systemService: SystemService,
     private router: Router
   ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemService.checkLogin();
   }
 
   save() {

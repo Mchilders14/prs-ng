@@ -17,7 +17,10 @@ export class RequestReviewComponent implements OnInit {
     private systemService: SystemService
     ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemService.checkLogin();
+    
     this.requestSvc.listReview(this.systemService.loggedInUser.id).subscribe(
       res => {
                 this.requests = res as Request[]; 

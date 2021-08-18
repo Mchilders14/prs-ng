@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Vendor } from 'src/app/model/vendor.class';
+import { SystemService } from 'src/app/service/system.service';
 import { VendorService } from 'src/app/service/vendor.service';
 
 @Component({
@@ -15,11 +16,14 @@ export class VendorCreateComponent implements OnInit {
   submitBtnTitle: string = 'Create';
 
   constructor(
+    private systemService: SystemService,
     private vendorSvc: VendorService,
     private router: Router
   ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemService.checkLogin();
   }
 
   save() {

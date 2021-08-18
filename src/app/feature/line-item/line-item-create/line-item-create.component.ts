@@ -6,6 +6,7 @@ import { Request } from 'src/app/model/request.class';
 import { LineItemService } from 'src/app/service/line-item.service';
 import { ProductService } from 'src/app/service/product.service';
 import { RequestService } from 'src/app/service/request.service';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-line-item-create',
@@ -24,15 +25,18 @@ export class LineItemCreateComponent implements OnInit {
     private lineItemSvc: LineItemService,
     private productSvc: ProductService,
     private requestSvc: RequestService,
+    private systemService: SystemService,
     private router: Router
   ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemService.checkLogin();
+
     // populate list of products
     this.productSvc.list().subscribe(
       res => {
                 this.products = res as Product[]; 
-                console.log("List of Products: ", this.products); 
               },
       err => { 
                 console.log(err); 

@@ -1,0 +1,16 @@
+#reject{
+    margin-left: 10px;
+}
+
+#approve{
+    margin-right: 10px;
+}
+
+#reason{
+    padding: 3px;
+}
+
+#approveRejectSection{
+    text-align: center;
+    padding-top: 20 px;
+}

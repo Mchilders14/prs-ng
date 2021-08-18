@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/model/product.class';
 import { ProductService } from 'src/app/service/product.service';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,11 +17,15 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private productSvc: ProductService,
+    private systemService: SystemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemService.checkLogin();
+
     this.route.params.subscribe(parms => this.productId = parms["id"]);
     this.productSvc.get(this.productId).subscribe(
       res => {

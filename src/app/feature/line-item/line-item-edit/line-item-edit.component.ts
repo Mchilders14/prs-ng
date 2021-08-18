@@ -6,6 +6,7 @@ import { Request } from 'src/app/model/request.class';
 import { LineItemService } from 'src/app/service/line-item.service';
 import { ProductService } from 'src/app/service/product.service';
 import { RequestService } from 'src/app/service/request.service';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-line-item-edit',
@@ -25,11 +26,15 @@ export class LineItemEditComponent implements OnInit {
     private lineItemSvc: LineItemService,
     private productSvc: ProductService,
     private requestSvc: RequestService,
+    private systemService: SystemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemService.checkLogin();
+
     // get line-item to edit
     this.route.params.subscribe(parms => this.lineItemId = parms["id"]);
     this.lineItemSvc.get(this.lineItemId).subscribe(
@@ -43,7 +48,6 @@ export class LineItemEditComponent implements OnInit {
      this.productSvc.list().subscribe(
       res => {
         this.products = res as Product[]; 
-        console.log("List of Products: ", this.products); 
       },
       err => { 
         console.log(err); 

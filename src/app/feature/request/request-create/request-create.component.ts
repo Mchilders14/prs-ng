@@ -23,7 +23,10 @@ export class RequestCreateComponent implements OnInit {
     private router: Router
   ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
+    this.systemSvc.checkLogin();
+
     console.log("User List, checking loggedInUser in sysSvc:  ", this.systemSvc.loggedInUser);
     this.user = this.systemSvc.loggedInUser;
     this.request.user = this.user;

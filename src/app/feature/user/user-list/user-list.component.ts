@@ -13,17 +13,17 @@ export class UserListComponent implements OnInit {
   users: User[] = [];
 
   constructor(
+    private systemService: SystemService,
     private userSvc: UserService,
-    private systemService: SystemService
     ) { }
 
+  // When the page loads, onInit executed.
   ngOnInit(): void {
     this.systemService.checkLogin();
     
     this.userSvc.list().subscribe(
       res => {
         this.users = res as User[];
-        console.log("List of Users: ", this.users);
       },
       err => { console.log(err); }
     );
