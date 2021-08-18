@@ -1,43 +1,45 @@
 <app-menu></app-menu>
 <section>
-    <h1 style="text-align: center; background-color:rgb(134, 106, 146);">Request Controller!</h1>
+    <h1 class="mainBackground">Request List</h1>
+</section>
+<div class="card-body">
     <a routerLink='/request-create'>
         <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
     </a>
-</section>
-<table class="table table-dark table-striped">
-    <tbody>
-        <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Description</th>
-            <th>Justification</th>
-            <th>Date Needed</th>
-            <th>Status</th>
-            <th>Total</th>
-            <th>Submitted Date</th>
-            <th>Action</th>
-        </tr>
-        <tr *ngFor='let request of requests'>
-            <td>{{request.id}}</td>
-            <td>{{request.user.lastName + ", " + request.user.firstName}}</td>
-            <td>{{request.description}}</td>
-            <td>{{request.justification}}</td>
-            <td>{{request.dateNeeded}}</td>
-            <td>{{request.status}}</td>
-            <td>{{request.total}}</td>
-            <td>{{request.submittedDate}}</td>
-            <td>
-                <a routerLink='/request-detail/{{request.id}}'>
-                    <img width='20' height='20' src='assets/details.png' title='Vendor Details'>
-                </a> |
-                <a routerLink='/request-edit/{{request.id}}'>
-                    <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Vendor'>
-                </a> |
-                <a routerLink='/request-lines/{{request.id}}'>
-                    <img width='20' height='20' src='assets/lines.png' title='Edit Vendor'>
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <table class="table table-dark table-striped">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Description</th>
+                <th>Justification</th>
+                <th>Date Needed</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Submitted Date</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor='let request of requests'>
+                <td>{{request.id}}</td>
+                <td>{{request.user.lastName + ", " + request.user.firstName}}</td>
+                <td>{{request.description}}</td>
+                <td>{{request.justification}}</td>
+                <td>{{request.dateNeeded}}</td>
+                <td>{{request.status}}</td>
+                <td>{{request.total}}</td>
+                <td>{{request.submittedDate}}</td>
+                <td>
+                    <a routerLink='/request-detail/{{request.id}}'>
+                        <img width='20' height='20' src='assets/details.png' title='Vendor Details'>
+                    </a> |
+                    <a routerLink='/request-edit/{{request.id}}'>
+                        <img width='20' height='20' src='assets/pencil-icon.png' title='Edit Vendor'>
+                    </a> |
+                    <a routerLink='/request-lines/{{request.id}}'>
+                        <img width='20' height='20' src='assets/lines.png' title='Edit Vendor'>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

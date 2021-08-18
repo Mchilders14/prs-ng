@@ -12,7 +12,7 @@
           </td>
           <td>
             <select [(ngModel)]="product.vendor" class="rounded">
-                <option value="undefined" disabled></option>
+                <option value="undefined"></option>
                 <option *ngFor="let vendor of vendors" [ngValue]="vendor">
                     {{vendor.name}}
                 </option>

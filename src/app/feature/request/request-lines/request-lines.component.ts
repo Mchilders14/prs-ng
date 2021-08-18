@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LineItem } from 'src/app/model/line-item.class';
 import { Request } from 'src/app/model/request.class';
+import { User } from 'src/app/model/user.class';
 import { LineItemService } from 'src/app/service/line-item.service';
 import { RequestService } from 'src/app/service/request.service';
 import { SystemService } from 'src/app/service/system.service';
@@ -18,6 +19,7 @@ export class RequestLinesComponent implements OnInit {
   lineItem: LineItem = new LineItem();
   lineItems: LineItem[] = [];
   requestId: number = 0;
+  saveUser: User = new User();
 
   constructor(
     private requestSvc: RequestService,
@@ -29,7 +31,6 @@ export class RequestLinesComponent implements OnInit {
 
   // When the page loads, onInit executed.
   ngOnInit(): void {
-    this.systemService.checkLogin();
 
     // Get the request
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
@@ -57,7 +58,7 @@ export class RequestLinesComponent implements OnInit {
     this.lineItemSvc.delete(lineItemId).subscribe(
       res => {
         this.lineItem = res as LineItem;
-        location.reload(); // reloads page
+        window.location.reload(); // reloads page
       },
       err => {
         console.log(err);
