@@ -51,6 +51,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'starwarsprs'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_db002244120e4d9eb9fc349dd3c51973 }}
-        package: .
+        package: ./dist/prs-ng
