@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Vendor } from '../model/vendor.class';
 
-const URL: string = "http://localhost:8080/api/vendors"
+const URL: string = "https://purchaserequestsystems.azurewebsites.net/api/vendors/"
 
 @Injectable({
   providedIn: 'root'
