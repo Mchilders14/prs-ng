@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { LineItem } from '../model/line-item.class';
 import { Observable } from 'rxjs';
 
-const URL: string = "https://purchaserequestsystems.azurewebsites.net/api/lineitem/"
+const URL: string = "https://purchaserequestsystems.azurewebsites.net/api/lineitems/"
 
 @Injectable({
   providedIn: 'root'
