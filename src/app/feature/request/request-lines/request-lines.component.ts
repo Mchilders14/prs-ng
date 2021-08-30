@@ -57,8 +57,23 @@ export class RequestLinesComponent implements OnInit {
   delete(lineItemId: number) {
     this.lineItemSvc.delete(lineItemId).subscribe(
       res => {
+        // setting LineItem
         this.lineItem = res as LineItem;
-        window.location.reload(); // reloads page
+
+        // refreshing request
+        this.route.params.subscribe(parms => this.requestId = parms["id"]);
+        this.requestSvc.get(this.requestId).subscribe(
+          resp => { this.request = resp as Request;},
+          err=> {console.log(err);}
+        );
+
+        //getting lines over again
+        this.route.params.subscribe(parms => this.requestId = parms["id"]);
+        this.lineItemSvc.getRequestLines(this.requestId).subscribe(
+          res => { this.lineItems = res as LineItem[];},
+          err=> {console.log(err);}
+        );
+        this.router.navigateByUrl('/request-lines/'+this.request.id);
       },
       err => {
         console.log(err);
